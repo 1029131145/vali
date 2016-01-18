@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="css/vali.css" type="text/css">
+    <script type="text/javascript" src="js/vali.min.js"></script>
+
+
+    <style type="text/css">
+        input{width: 300px;height: 30px}
+        *{font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif}
+        button{
+            height: 30px;
+            width: 100px;
+            border-bottom: 1px solid #666;
+        }
+    </style>
+
+</head>
+<body style="text-align: center">
+
+<h1>
+    <a href="http://1029131145.github.io/vali/">http://1029131145.github.io/vali/</a><i class="fa fa-hand-peace-o"></i>
+</h1>
+
+
+<form action="index.html" method="get" class="form" id="form">
+
+    电子邮箱：<input type="text" email="y" vali>
+
+    <button type="submit">
+        提交
+    </button>
+
+</form>
+
+
+<script type="text/javascript">
+    $("#form").vali();
+</script>
+
+</body>
+</html>

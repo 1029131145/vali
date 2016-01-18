@@ -1,0 +1,12 @@
+{
+  "name": "jquery-vali",
+  "version": "1.0",
+  "main": "vali.js",
+  "repository": "1029131145/vali",
+  "dependencies": {
+    "jquery": ">=1.8"
+  },
+  "author": "lukang",
+  "wechat": "lukangdaye",
+  "qq": 1029131145
+}
