@@ -5,13 +5,14 @@
  */
 
 (function ($) {
+    var vali_current = 0;
     $.fn.vali = function (A) {
         if (!this.is("form")) {
             console.error("Not is Form");
             return false;
         }
 
-        var _, _o, _v, _id, _x, _y, _Rep, _r, _e, _s, _top, _left, _prompt, _err, _validate, _custom, _c;
+        var _, _id, _o, _v, _x, _y, _Rep, _r, _e, _s, _top, _left, _prompt, _err, _validate, _custom, _c;
 
         _custom = new Array();
         _r = new Array();
@@ -43,7 +44,7 @@
         };
 
         try {
-            var ifs=vali_prompt;
+            var ifs = vali_prompt;
             _prompt = ifs;
         } catch (e) {
             console.log("No prompt");
@@ -92,6 +93,7 @@
         };
 
         _ = $(this), _id = 0, _err = 0, _e = "" , _s = "";
+        _id = vali_current;
         var _A = {
             "vali": "vali",
             "disparityH": 8,
@@ -139,6 +141,7 @@
 
         init = function (obj) {
             _id++;
+            vali_current++;
             _o = obj;
             _top = obj.offset().top;
             _left = obj.offset().left;
