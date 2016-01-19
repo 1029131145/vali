@@ -1,0 +1,35 @@
+@import "font-awesome.min.css";
+
+.validate_label_prompt {
+    padding: 5px 10px;
+    font-size: 13px;
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    z-index: 999999;
+    display: none;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.validate_label_prompt i {
+
+}
+
+.validate_label_prompt.error {
+    display: block;
+    border: 1px solid #ff9e9e;
+    background-color: #ffe2e2;
+    color: #ff3939;
+    box-shadow: 0px 0px 5px #ff9e9e;
+}
+
+.validate_label_prompt.success {
+    display: block;
+    border: 1px solid #b1ffaf;
+    background-color: #e8ffe7;
+    color: #27b73f;
+    box-shadow: 0px 0px 5px #b1ffaf;
+}
