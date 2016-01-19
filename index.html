@@ -6,24 +6,27 @@
 
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <link rel="stylesheet" href="css/vali.css" type="text/css">
-    <script type="text/javascript" src="js/vali.min.js"></script>
+    <script type="text/javascript" src="js/vali.js"></script>
 
 
     <style type="text/css">
         input{width: 300px;height: 30px}
         *{font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif}
         button{
-            height: 30px;
+            height: 36px;
             width: 100px;
-            border-bottom: 1px solid #666;
+            border: 1px solid darkcyan;
+            background-color: darkcyan;
+            color: #fff;
+            cursor: pointer;
         }
     </style>
 
 </head>
 <body style="text-align: center">
-
+<h1>Vali.js</h1>
 <h1>
-    <a href="http://1029131145.github.io/vali/">http://1029131145.github.io/vali/</a><i class="fa fa-hand-peace-o"></i>
+    API：<a style="text-decoration: none;color: darkcyan;" href="http://1029131145.github.io/vali/">http://1029131145.github.io/vali/</a> <i class="fa fa-hand-peace-o"></i>
 </h1>
 
 
@@ -36,10 +39,8 @@
     </button>
 
 </form>
-
-
 <script type="text/javascript">
-    $("#form").vali();
+    $(".form").vali();
 </script>
 
 </body>
