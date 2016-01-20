@@ -149,7 +149,7 @@
 
         code = function () {
             _o.attr("valiid", +_id);
-            _o.after('<label class="validate_label_prompt" id="valiid' + _id + '"></label>');
+            $("body").append('<label class="validate_label_prompt" id="valiid' + _id + '"></label>');
             $("#valiid" + _id).css({
                 "top": (_top - 1 + _y + _A["disparityH"] + 1) + "px",
                 "left": (_left - 1 + _A["disparityW"] + 1) + "px"
