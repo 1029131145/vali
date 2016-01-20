@@ -5,6 +5,7 @@
     <title>Vali.js</title>
     <link rel="icon" href="favicon.ico">
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
     <script type="text/javascript" src="js/vali.js"></script>
 
     <link rel="stylesheet" href="css/vali.css">
@@ -71,7 +72,7 @@
                 <h1 id="download" class="page-header"> 下载
                 </h1>
 
-                <p class="lead">Vali.js （当前版本 v1.0）提供快速验证表单的很强大的控件。由于是初版，问题还有很多，希望大家能多多协助。</p>
+                <p class="lead">Vali.js （当前版本 v 1.1）提供快速验证表单的很强大的控件。希望大家能多多协助。</p>
 
                 <div class="row bs-downloads">
                     <div class="col-sm-4">
@@ -235,11 +236,11 @@
                         <td>长度不能小于设置值</td>
                     </tr>
                     <tr>
-                        <th class="info">bank</th>
+                        <th class="info">bank <span class="label label-danger">v 1.1</span></th>
                         <td>t</td>
                         <td>
                             验证银行卡号 <br>
-                            <span class="label label-danger">没有验证银行种类，本人太懒...</span>
+                            <span class="label label-danger">必须是真实的银行卡</span>
                         </td>
                     </tr>
                     <tr>
@@ -285,7 +286,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="info">idcard</th>
+                        <th class="info">idcard <span class="label label-danger">v 1.1</span></th>
                         <td>t</td>
                         <td>
                             验证身份证
@@ -419,7 +420,7 @@
     <span class="hl opt">$(</span><span class="hl str">&quot;.form&quot;</span><span class="hl opt">).</span><span class="hl kwd">vali</span><span class="hl opt">();</span>
 <span class="hl kwa">&lt;/script&gt;</span></code></pre>
                 <div class="alert alert-info" role="alert">
-                    暂时 170 开头的验证失败。
+                    现在已经支持 170 <span class="label label-danger">v 1.1</span>
                 </div>
 
                 <h2 id="yan3">
@@ -487,6 +488,10 @@
 
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">bank</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
 
+
+                <div class="alert alert-danger" role="alert">
+                    银行卡必须是真实的 <span class="label label-danger">v 1.1</span>
+                </div>
 
                 <h2 id="yan6">
                     only验证
@@ -578,7 +583,7 @@
                 <form class="bs-example bs-example-form form10" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >请输入钱</span>
-                        <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" number="t" vali>
+                        <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" number="t" dp="3" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
@@ -589,8 +594,9 @@
                     });
                 </script>
 
-                <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">number</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
+                <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">number</span>=<span class="hl str">&quot;t&quot;</span>  <span class="hl kwb">dp</span>=<span class="hl str">&quot;3&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
+                    可以通过元素属性 dp 来快捷设置位数 <span class="label label-danger">v 1.1</span> <br>
                     小数点位数请设置属性 <span class="label label-danger">decimal_places</span>
                 </div>
 
@@ -610,8 +616,8 @@
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">idcard</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
-                <div class="alert alert-info" role="alert">
-                    身份证验证，没什么好说的....
+                <div class="alert alert-danger" role="alert">
+                    身份证必须是真实的 <span class="label label-danger">v 1.1</span>
                 </div>
 
                 <h2 id="yan12">equally验证</h2>
@@ -655,7 +661,7 @@
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">date</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
-                    日期格式：1996-09-24 or 1996-9-24
+                    日期格式：1996-09-24 or 1996-9-24 or 1996/5/21
                     <br>
                     错误格式：1996-2-30
                 </div>
@@ -781,7 +787,7 @@
 
                 <div class="jumbotron">
                     <h1>Hello, world!</h1>
-                    <p>由于是第一版，还有很多没有实现的，希望多多指导，多多协助。o(∩_∩)o </p>
+                    <p>一切都是为了方便，希望多多指导，多多协助。o(∩_∩)o</p>
                     <p><a class="btn btn-primary btn-lg" href="#" role="button"><i class="fa fa-github-alt"></i> GitHub</a></p>
                 </div>
 
