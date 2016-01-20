@@ -6,13 +6,21 @@
 
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <link rel="stylesheet" href="css/vali.css" type="text/css">
+    <script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
     <script type="text/javascript" src="js/vali.js"></script>
 
 
     <style type="text/css">
-        input{width: 300px;height: 30px}
-        *{font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif}
-        button{
+        input {
+            width: 300px;
+            height: 30px
+        }
+
+        * {
+            font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif
+        }
+
+        button {
             height: 36px;
             width: 100px;
             border: 1px solid darkcyan;
@@ -25,14 +33,16 @@
 </head>
 <body style="text-align: center">
 <h1>Vali.js</h1>
+
 <h1>
-    API：<a style="text-decoration: none;color: darkcyan;" href="http://1029131145.github.io/vali/">http://1029131145.github.io/vali/</a> <i class="fa fa-hand-peace-o"></i>
+    API：<a style="text-decoration: none;color: darkcyan;" href="http://1029131145.github.io/vali/">http://1029131145.github.io/vali/</a>
+    <i class="fa fa-hand-peace-o"></i>
 </h1>
 
 
 <form action="index.html" method="get" class="form" id="form">
 
-    电子邮箱：<input type="text" email="y" vali>
+    银行卡号：<input type="text" bank="y" vali>
 
     <button type="submit">
         提交
@@ -40,7 +50,9 @@
 
 </form>
 <script type="text/javascript">
-    $(".form").vali();
+    $(".form").vali({
+        "success_show":true
+    });
 </script>
 
 </body>

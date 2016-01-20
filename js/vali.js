@@ -12,14 +12,12 @@
             return false;
         }
 
-        var _, _id, _o, _v, _x, _y, _Rep, _r, _e, _s, _top, _left, _prompt, _err, _validate, _custom, _c;
+        var _, _id, _o, _v, _x, _y, _Rep, _r, _e, _s, _top, _left, _prompt, _err, _validate, _custom, _c, _vali;
 
         _custom = new Array();
         _r = new Array();
         _r[0] = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        _r[1] = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
-        _r[2] = /^\d{19}|\d{18}|\d{17}|\d{16}|\d{15}$/;
-        _r[3] = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        _r[1] = /^(0|86|17951)?(13[0-9]|15[012356789]|17[0678]|18[0-9]|14[57])[0-9]{8}$/;
 
         _prompt = {
             "Success": "Success",
@@ -37,15 +35,15 @@
             "equally": "Must be the same",
             "cannot": "cannot is ｛0｝",
             "date": "Please enter the correct date",
-            "value0": "Chinese",                    //汉字
-            "value1": "Letter",                     //字母
-            "value2": "Number",                     //数字
-            "value3": "Space"                       //空格字符
+            "value0": "Chinese",
+            "value1": "Letter",
+            "value2": "Number",
+            "value3": "Space"
         };
 
         try {
-            var ifs = vali_prompt;
-            _prompt = ifs;
+            var $ifs = vali_prompt;
+            _prompt = $ifs;
         } catch (e) {
             console.log("No prompt");
         }
@@ -269,6 +267,173 @@
             _A["success_show"] ? p.fadeIn(500) : p.hide();
         };
 
+
+        _vali = function () {
+            this.vali_date = function (str) {
+                var r = str.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+                if (r == null)return false;
+                var d = new Date(r[1], r[3] - 1, r[4]);
+                return (d.getFullYear() == r[1] && (d.getMonth() + 1) == r[3] && d.getDate() == r[4]);
+            };
+            this.vali_time = function (str) {
+                var a = str.match(/^(\d{1,2})(:)?(\d{1,2})\2(\d{1,2})$/);
+                if (a == null) {
+                    return false;
+                }
+                if (a[1] > 24 || a[3] > 60 || a[4] > 60) {
+                    return false
+                }
+                return true;
+            };
+            this.vali_datetime = function (str) {
+                var reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+                var r = str.match(reg);
+                if (r == null)return false;
+                var d = new Date(r[1], r[3] - 1, r[4], r[5], r[6], r[7]);
+                return (d.getFullYear() == r[1] && (d.getMonth() + 1) == r[3] && d.getDate() == r[4] && d.getHours() == r[5] && d.getMinutes() == r[6] && d.getSeconds() == r[7]);
+            }
+            this.bank_luhmCheck = function (bankno) {
+                var lastNum = bankno.substr(bankno.length - 1, 1);
+                var first15Num = bankno.substr(0, bankno.length - 1);
+                var newArr = new Array();
+                for (var i = first15Num.length - 1; i > -1; i--) {
+                    newArr.push(first15Num.substr(i, 1));
+                }
+                var arrJiShu = new Array();
+                var arrJiShu2 = new Array();
+                var arrOuShu = new Array();
+                for (var j = 0; j < newArr.length; j++) {
+                    if ((j + 1) % 2 == 1) {
+                        if (parseInt(newArr[j]) * 2 < 9) {
+                            arrJiShu.push(parseInt(newArr[j]) * 2);
+                        }
+                        else {
+                            arrJiShu2.push(parseInt(newArr[j]) * 2);
+                        }
+                    }
+                    else {
+                        arrOuShu.push(newArr[j]);
+                    }
+                }
+                var jishu_child1 = new Array();
+                var jishu_child2 = new Array();
+                for (var h = 0; h < arrJiShu2.length; h++) {
+                    jishu_child1.push(parseInt(arrJiShu2[h]) % 10);
+                    jishu_child2.push(parseInt(arrJiShu2[h]) / 10);
+                }
+                var sumJiShu = 0;
+                var sumOuShu = 0;
+                var sumJiShuChild1 = 0;
+                var sumJiShuChild2 = 0;
+                var sumTotal = 0;
+                for (var m = 0; m < arrJiShu.length; m++) {
+                    sumJiShu = sumJiShu + parseInt(arrJiShu[m]);
+                }
+                for (var n = 0; n < arrOuShu.length; n++) {
+                    sumOuShu = sumOuShu + parseInt(arrOuShu[n]);
+                }
+                for (var p = 0; p < jishu_child1.length; p++) {
+                    sumJiShuChild1 = sumJiShuChild1 + parseInt(jishu_child1[p]);
+                    sumJiShuChild2 = sumJiShuChild2 + parseInt(jishu_child2[p]);
+                }
+                sumTotal = parseInt(sumJiShu) + parseInt(sumOuShu) + parseInt(sumJiShuChild1) + parseInt(sumJiShuChild2);
+                var k = parseInt(sumTotal) % 10 == 0 ? 10 : parseInt(sumTotal) % 10;
+                var luhm = 10 - k;
+
+                if (lastNum == luhm) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            };
+            this.bank_Check = function (bankno) {
+                if (bankno == "") {
+                    return false;
+                }
+                if (bankno.length < 16 || bankno.length > 19) {
+                    return false;
+                }
+                var num = /^\d*$/;
+                if (!num.exec(bankno)) {
+                    return false;
+                }
+                var strBin = "10,18,30,35,37,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,58,60,62,65,68,69,84,87,88,94,95,98,99";
+                if (strBin.indexOf(bankno.substring(0, 2)) == -1) {
+                    return false;
+                }
+                if (!this.bank_luhmCheck(bankno)) {
+                    return false;
+                }
+                return true;
+            };
+
+
+            this.Wi = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1];
+            this.Vc = [1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2];
+            this.IdCard = function (idCard) {
+                if (idCard.length == 15) {
+                    return this.IdCard15(idCard);
+                } else if (idCard.length == 18) {
+                    var a_idCard = idCard.split("");
+                    if (this.Id2Card18(idCard) && this.Id1Card18(a_idCard)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            };
+            this.Id1Card18 = function (a_idCard) {
+                var sum = 0;
+                if (a_idCard[17].toLowerCase() == 'x') {
+                    a_idCard[17] = 10;
+                }
+                for (var i = 0; i < 17; i++) {
+                    sum += this.Wi[i] * a_idCard[i];
+                }
+                var i = sum % 11;
+                if (a_idCard[17] == this.Vc[i]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            this.Id2Card18 = function (idCard18) {
+                var year = idCard18.substring(6, 10);
+                var month = idCard18.substring(10, 12);
+                var day = idCard18.substring(12, 14);
+                var temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day));
+                if (temp_date.getFullYear() != parseFloat(year)
+                    || temp_date.getMonth() != parseFloat(month) - 1
+                    || temp_date.getDate() != parseFloat(day)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+
+            this.IdCard15 = function (idCard15) {
+                var year = idCard15.substring(6, 8);
+                var month = idCard15.substring(8, 10);
+                var day = idCard15.substring(10, 12);
+                var temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day));
+                if (temp_date.getYear() != parseFloat(year)
+                    || temp_date.getMonth() != parseFloat(month) - 1
+                    || temp_date.getDate() != parseFloat(day)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            };
+
+            this.trim = function (str) {
+                return str.replace(/(^\s*)|(\s*$)/g, "");
+            }
+        };
+
+        var vali_fun = new _vali();
         var input_email, input_phone, input_max, input_min, input_bank, input_only, input_must, input_first_must, input_first_cannot, input_number, input_idcard, input_equally, input_cannot, input_custom, input_date;
 
         input_email = function (p) {
@@ -281,11 +446,11 @@
 
 
         input_date = function (p) {
-            var _ifs = _v.match(/((^((1[8-9]\d{2})|([2-9]\d{3}))(-)(10|12|0?[13578])(-)(3[01]|[12][0-9]|0?[1-9])$)|(^((1[8-9]\d{2})|([2-9]\d{3}))(-)(11|0?[469])(-)(30|[12][0-9]|0?[1-9])$)|(^((1[8-9]\d{2})|([2-9]\d{3}))(-)(0?2)(-)(2[0-8]|1[0-9]|0?[1-9])$)|(^([2468][048]00)(-)(0?2)(-)(29)$)|(^([3579][26]00)(-)(0?2)(-)(29)$)|(^([1][89][0][48])(-)(0?2)(-)(29)$)|(^([2-9][0-9][0][48])(-)(0?2)(-)(29)$)|(^([1][89][2468][048])(-)(0?2)(-)(29)$)|(^([2-9][0-9][2468][048])(-)(0?2)(-)(29)$)|(^([1][89][13579][26])(-)(0?2)(-)(29)$)|(^([2-9][0-9][13579][26])(-)(0?2)(-)(29)$))/);
+            var _ifs = vali_fun.vali_date(_v);
             p.html(_prompt["date"]);
             p.append(_e);
-            _ifs != null ? prompt_log("input_email-->Success") : validate_error(p);
-            _ifs != null ? _err = 0 : _err = 1;
+            _ifs ? prompt_log("input_email-->Success") : validate_error(p);
+            _ifs ? _err = 0 : _err = 1;
         };
 
         input_cannot = function (p, a) {
@@ -298,11 +463,11 @@
         };
 
         input_idcard = function (p) {
-            _Rep = _r[3];
+            var _ifs = vali_fun.IdCard(_v);
             p.html(_prompt["idcard"]);
             p.append(_e);
-            _Rep.test(_v) ? prompt_log("input_email-->Success") : validate_error(p);
-            _Rep.test(_v) ? _err = 0 : _err = 1;
+            _ifs ? prompt_log("input_email-->Success") : validate_error(p);
+            _ifs ? _err = 0 : _err = 1;
         };
 
         input_equally = function (p, a) {
@@ -331,7 +496,12 @@
                 validate_error(p);
                 _err = 1;
             } else {
-                _o.val(num.toFixed(_A["decimal_places"]));
+                var dp=parseInt(_o.attr("dp"));
+                var _dp=_A["decimal_places"];
+                if(!isNaN(dp)&&dp>=0){
+                    _dp=dp;
+                }
+                _o.val(num.toFixed(_dp));
             }
         };
 
@@ -364,11 +534,11 @@
         };
 
         input_bank = function (p) {
-            _Rep = _r[2];
+            var ifs = vali_fun.bank_Check(_v);
             p.html(_prompt["bank"]);
             p.append(_e);
-            _Rep.test(_v) ? prompt_log("input_bank-->Success") : validate_error(p);
-            return _Rep.test(_v) ? _err = 0 : _err = 1;
+            ifs ? prompt_log("input_bank-->Success") : validate_error(p);
+            return ifs ? _err = 0 : _err = 1;
         };
         input_must = function (p, num) {
             var pr = _prompt["must"];
