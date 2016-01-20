@@ -1,6 +1,14 @@
 #vali.js
-##一个很强大的验证控件
-###作者：鲁康
 中文API地址：http://1029131145.github.io/vali/
-#wechat：lukangdaye
+
+#使用方法
+```javascript
+<!-- 非常简单 -->
+<form class="form">
+    <input type="text" email="t" vali>
+</form>
+<script type="text/javascript">
+    $(".form").vali();
+</script>
+```
 
