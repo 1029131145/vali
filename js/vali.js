@@ -166,6 +166,7 @@
         input_focus = function (id) {
             var prompt = $("#valiid" + id);
             _o.focus(function () {
+                _o = $(this);
                 prompt.hide();
                 _top = _o.offset().top;
                 _left = _o.offset().left;
