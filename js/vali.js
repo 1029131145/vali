@@ -94,7 +94,7 @@
         _id = vali_current;
         var _A = {
             "vali": "vali",
-            "disparityH": 8,
+            "disparityH": 4,
             "disparityW": 0,
             "prompt_width": true,
             "prompt_log": false,
@@ -145,6 +145,8 @@
             _left = obj.offset().left;
             _x = obj.width();
             _y = obj.height();
+            _top=parseInt(_top)+parseInt(vali_fun.getPaddingTB(obj));
+            _x=parseInt(_x)+parseInt(vali_fun.getPaddingLR(obj));
         };
 
         code = function () {
@@ -165,6 +167,13 @@
             var prompt = $("#valiid" + id);
             _o.focus(function () {
                 prompt.hide();
+                _top = _o.offset().top;
+                _left = _o.offset().left;
+                _top=parseInt(_top)+parseInt(vali_fun.getPaddingTB(_o));
+                prompt.css({
+                    "top": (_top - 1 + _y + _A["disparityH"] + 1) + "px",
+                    "left": (_left - 1 + _A["disparityW"] + 1) + "px"
+                });
             });
         };
 
@@ -431,6 +440,22 @@
             this.trim = function (str) {
                 return str.replace(/(^\s*)|(\s*$)/g, "");
             }
+
+
+            this.getPaddingTB = function (o) {
+                var t= o.css("padding-top");
+                var b= o.css("padding-bottom");
+                var bl=o.css("border-top-width");
+                var br=o.css("border-bottom-width");
+                return parseInt(t)+parseInt(b)+parseInt(bl)+parseInt(br);
+            }
+            this.getPaddingLR = function (o) {
+                var l= o.css("padding-left");
+                var r= o.css("padding-right");
+                var bl=o.css("border-left-width");
+                var br=o.css("border-right-width");
+                return parseInt(l)+parseInt(r)+parseInt(bl)+parseInt(br);
+            }
         };
 
         var vali_fun = new _vali();
@@ -496,10 +521,10 @@
                 validate_error(p);
                 _err = 1;
             } else {
-                var dp=parseInt(_o.attr("dp"));
-                var _dp=_A["decimal_places"];
-                if(!isNaN(dp)&&dp>=0){
-                    _dp=dp;
+                var dp = parseInt(_o.attr("dp"));
+                var _dp = _A["decimal_places"];
+                if (!isNaN(dp) && dp >= 0) {
+                    _dp = dp;
                 }
                 _o.val(num.toFixed(_dp));
             }
