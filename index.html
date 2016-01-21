@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon.ico">
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
-    <script type="text/javascript" src="js/vali.js"></script>
+    <script type="text/javascript" src="js/vali.min.js"></script>
 
     <link rel="stylesheet" href="css/vali.css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -74,7 +74,7 @@
                 <h1 id="download" class="page-header"> 下载
                 </h1>
 
-                <p class="lead">Vali.js （当前版本 v 1.1）提供快速验证表单的很强大的控件。希望大家能多多协助。</p>
+                <p class="lead">Vali.js （当前版本 v 1.2）提供快速验证表单的很强大的控件。希望大家能多多协助。</p>
 
                 <div class="row bs-downloads">
                     <div class="col-sm-4">
@@ -384,9 +384,7 @@
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(".form1").vali({
-                        "disparityH":50
-                    });
+                    $(".form1").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;form</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;form&quot;</span><span class="hl kwa">&gt;</span>
     <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">email</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span>
@@ -410,9 +408,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form2").vali({
-                            "disparityH":63
-                        });
+                        $(".form2").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;form</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;form&quot;</span><span class="hl kwa">&gt;</span>
@@ -436,9 +432,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form3").vali({
-                            "disparityH":75
-                        });
+                        $(".form3").vali();
                     });
                 </script>
 
@@ -463,9 +457,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form4").vali({
-                            "disparityH":87
-                        });
+                        $(".form4").vali();
                     });
                 </script>
 
@@ -482,9 +474,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form5").vali({
-                            "disparityH":100
-                        });
+                        $(".form5").vali();
                     });
                 </script>
 
@@ -506,9 +496,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form6").vali({
-                            "disparityH":113
-                        });
+                        $(".form6").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">only</span>=<span class="hl str">&quot;1,2,_&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -529,9 +517,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form7").vali({
-                            "disparityH":125
-                        });
+                        $(".form7").vali();
                     });
                 </script>
 
@@ -549,9 +535,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form8").vali({
-                            "disparityH":140
-                        });
+                        $(".form8").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">first_must</span>=<span class="hl str">&quot;1&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -571,9 +555,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form9").vali({
-                            "disparityH":155
-                        });
+                        $(".form9").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">first_cannot</span>=<span class="hl str">&quot;1&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -590,9 +572,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form10").vali({
-                            "disparityH":167
-                        });
+                        $(".form10").vali();
                     });
                 </script>
 
@@ -612,9 +592,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form11").vali({
-                            "disparityH":180
-                        });
+                        $(".form11").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">idcard</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -635,10 +613,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form12").vali({
-                            "disparityH":195,
-                            "success_show":true
-                        });
+                        $(".form12").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;qq&quot;</span> <span class="hl kwb">value</span>=<span class="hl str">&quot;1029131145&quot;</span><span class="hl kwa">&gt;</span>
@@ -656,9 +631,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form13").vali({
-                            "disparityH":205
-                        });
+                        $(".form13").vali();
                     });
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">date</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -683,9 +656,7 @@
                 </form>
                 <script type="text/javascript">
                     $(function(){
-                        $(".form14").vali({
-                            "disparityH":218
-                        });
+                        $(".form14").vali();
                     });
                 </script>
 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;select</span> <span class="hl kwb">cannot</span>=<span class="hl str">&quot;no&quot;</span> vali<span class="hl kwa">&gt;</span>
@@ -710,7 +681,6 @@
                 </form>
                 <script type="text/javascript">
                     $(".form15").vali({
-                        "disparityH":232,
                         "custom":[{
                             "ele":"custom",
                             "fun":function (e){
@@ -772,7 +742,6 @@
                 </form>
                 <script type="text/javascript">
                     $(".form16").vali({
-                        "disparityH":244,
                         "success_show":true
                     });
                 </script>
