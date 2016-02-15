@@ -80,7 +80,7 @@
                 <h1 id="download" class="page-header"> 下载
                 </h1>
 
-                <p class="lead">Vali.js （当前版本 v 1.2）提供快速验证表单的很强大的控件。希望大家能多多协助。</p>
+                <p class="lead">Vali.js （当前版本 v 1.3）提供快速验证表单的很强大的控件。希望大家能多多协助。</p>
 
                 <div class="row bs-downloads">
                     <div class="col-sm-4">
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="bs-docs-section">
-                <h1 id="shux" class="page-header">属性</h1>
+                <h1 id="shux" class="page-header">属性 </h1>
 
                 <table class="table table-hover table-bordered">
                     <tr>
@@ -142,22 +142,34 @@
                         <td>表单的验证标识符</td>
                     </tr>
                     <tr>
+                        <th class="info">class_error</th>
+                        <td>vali_error</td>
+                        <td>String</td>
+                        <td>验证失败的输入框样式</td>
+                    </tr>
+                    <tr>
+                        <th class="info">class_success</th>
+                        <td>vali_success</td>
+                        <td>String</td>
+                        <td>验证成功的输入框样式</td>
+                    </tr>
+                    <tr>
                         <th class="info">disparityH</th>
-                        <td>8</td>
+                        <td>4</td>
                         <td>Number</td>
-                        <td>错误提示框的Y轴误差</td>
+                        <td>提示框的Y轴误差</td>
                     </tr>
                     <tr>
                         <th class="info">disparityW</th>
                         <td>0</td>
                         <td>Number</td>
-                        <td>错误提示框的X轴误差</td>
+                        <td>提示框的X轴误差</td>
                     </tr>
                     <tr>
                         <th class="info">prompt_width</th>
                         <td>true</td>
                         <td>Boolean</td>
-                        <td>错误提示框的宽度是否和输入框一样长</td>
+                        <td>提示框的宽度是否和输入框一样长</td>
                     </tr>
                     <tr>
                         <th class="info">prompt_log</th>
@@ -208,13 +220,34 @@
                         <td>自定义验证方法，很灵活</td>
                     </tr>
 
+                    <tr>
+                        <th class="info">window_show</th>
+                        <td>true</td>
+                        <td>Boolean</td>
+                        <td>是否显示浮动窗口提示</td>
+                    </tr>
+
+                    <tr>
+                        <th class="info">pe <span class="label label-danger">v 1.3</span></th>
+                        <td>false</td>
+                        <td>Boolean</td>
+                        <td>通过用户code提示失败</td>
+                    </tr>
+                    <tr>
+                        <th class="info">ps <span class="label label-danger">v 1.3</span></th>
+                        <td>false</td>
+                        <td>Boolean</td>
+                        <td>通过用户code提示成功</td>
+                    </tr>
+
+
 
                 </table>
 
             </div>
 
             <div class="bs-docs-section">
-                <h1 id="yanz" class="page-header">15种验证</h1>
+                <h1 id="yanz" class="page-header">22种验证</h1>
 
 
                 <table class="table table-hover table-bordered">
@@ -316,6 +349,23 @@
                             <span class="label label-danger">例如：1996-05-21 = ture | 1996-02-30 = false</span>
                         </td>
                     </tr>
+                    <tr>
+                        <th class="info">time <span class="label label-danger">v 1.3</span></th>
+                        <td>t</td>
+                        <td>
+                            验证时间格式 <br>
+                            <span class="label label-danger">例如：12:02:02 = ture | 30:30:600 = false</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="info">datetime <span class="label label-danger">v 1.3</span></th>
+                        <td>t</td>
+                        <td>
+                            验证时间格式 <br>
+                            <span class="label label-danger">例如：2016-02-15 14:17:04</span>
+                        </td>
+                    </tr>
+
 
                     <tr>
                         <th class="info">cannot</th>
@@ -335,7 +385,43 @@
                     </tr>
 
 
+                    <tr>
+                        <th class="info">minmax <span class="label label-danger">v 1.3</span></th>
+                        <td>6-16 <span class="label label-danger">OR</span> 6,16</td>
+                        <td>
+                            长度区间
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="info">http <span class="label label-danger">v 1.3</span></th>
+                        <td>t</td>
+                        <td>
+                            验证网址
+                        </td>
+                    </tr>
 
+                    <tr>
+                        <th class="info">number_max <span class="label label-danger">v 1.3</span></th>
+                        <td>50</td>
+                        <td>
+                            数字不能大于设置值
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="info">number_min <span class="label label-danger">v 1.3</span></th>
+                        <td>10</td>
+                        <td>
+                            数字不能小于设置值
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="info">number_minmax <span class="label label-danger">v 1.3</span></th>
+                        <td>10-50 <span class="label label-danger">OR</span> 10,50</td>
+                        <td>
+                            数字大小区间
+                        </td>
+                    </tr>
 
 
                 </table>
@@ -344,26 +430,31 @@
             <div class="bs-docs-section">
                 <h1 id="tis" class="page-header">自定义提示框</h1>
 <pre><code class="code_http">var vali_prompt = {
-            "Success": "Success",
-            "email": "Please enter the correct email address",
-            "phone": "Please enter the correct cell phone number",
-            "max": "Can not exceed ｛0｝ characters",
-            "min": "Not less than ｛0｝ characters",
-            "bank": "Please enter the correct bank card number",
-            "only": "Contain only",
-            "must": "Must contain",
-            "first_must": "The first must be：",
-            "first_cannot": "The first cannot be：",
-            "number": "Please enter a number",
-            "idcard": "Please enter the correct ID number",
-            "equally": "Must be the same",
-            "cannot": "cannot is ｛0｝",
-            "date": "Please enter the correct date",
-            "value0": "Chinese character",
-            "value1": "Letter",
-            "value2": "Number",
-            "value3": "Space character"
-        };</code></pre>
+    "Success": "Success",
+    "email": "Please enter the correct email address",
+    "phone": "Please enter the correct cell phone number",
+    "max": "Can not exceed ｛0｝ characters",
+    "min": "Not less than ｛0｝ characters",
+    "bank": "Please enter the correct bank card number",
+    "only": "Contain only",
+    "must": "Must contain",
+    "first_must": "The first must be：",
+    "first_cannot": "The first cannot be：",
+    "number": "Please enter a number",
+    "idcard": "Please enter the correct ID number",
+    "equally": "Must be the same",
+    "cannot": "cannot is ｛0｝",
+    "date": "Please enter the correct date",
+    "http": "Please enter the correct URL",
+    "number_max": "Can not be greater than ｛0｝",
+    "number_min": "Can not be less than ｛0｝",
+    "time": "Please enter the correct time",
+    "datetime": "Please enter the correct date time",
+    "value0": "Chinese",
+    "value1": "Letter",
+    "value2": "Number",
+    "value3": "Space"
+};</code></pre>
 
                 <div class="bs-callout bs-callout-info" id="jquery-">
                     <h4>自定义提示框一定要在 Vali.js 之前引入</h4>
@@ -739,6 +830,40 @@
             </div>
 
             <div class="bs-docs-section anli">
+                <h1 id="ts_zdy" class="page-header">提示框自定义 <small style="color:red;">v1.3</small></h1>
+                <form class="bs-example bs-example-form form17" data-example-id="simple-input-groups">
+                    <div class="input-group">
+                        <span class="input-group-addon">请输入邮箱</span>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1" email="t" pe="#pe" ps="#ps" vali>
+                    </div>
+                    <span class="label label-danger" id="pe" style="display:none">输入错误</span>
+                    <span class="label label-info" id="ps" style="display:none">输入正确</span>
+                </form>
+                <script type="text/javascript">
+                    $(".form17").vali({
+                        "window_show":false,
+                        "pe":true,
+                        "ps":true
+                    });
+                </script>
+
+                <pre class="hl"><code class="language-html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">email</span>=<span class="hl str">&quot;t&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;#pe&quot;</span> <span class="hl kwb">ps</span>=<span class="hl str">&quot;#ps&quot;</span> vali<span class="hl kwa">&gt;</span>
+<span class="hl kwa">&lt;span</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;pe&quot;</span> <span class="hl kwb">style</span>=<span class="hl str">&quot;display:none&quot;</span><span class="hl kwa">&gt;</span>输入错误<span class="hl kwa">&lt;/span&gt;</span>
+<span class="hl kwa">&lt;span</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;ps&quot;</span> <span class="hl kwb">style</span>=<span class="hl str">&quot;display:none&quot;</span><span class="hl kwa">&gt;</span>输入正确<span class="hl kwa">&lt;/span&gt;</span>
+<span class="hl kwa">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+    <span class="hl opt">$(</span><span class="hl str">&quot;.form&quot;</span><span class="hl opt">).</span><span class="hl kwd">vali</span><span class="hl opt">({</span>
+        <span class="hl str">&quot;window_show&quot;</span><span class="hl opt">:</span><span class="hl kwa">false</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;pe&quot;</span><span class="hl opt">:</span><span class="hl kwa">true</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;ps&quot;</span><span class="hl opt">:</span><span class="hl kwa">true</span>
+    <span class="hl opt">});</span>
+<span class="hl kwa">&lt;/script&gt;</span></code>
+</pre>
+                <div class="alert alert-danger" role="alert">
+                    pe 失败提示，ps 成功提示，可以用class。
+                </div>
+            </div>
+
+            <div class="bs-docs-section anli">
                 <h1 id="cg" class="page-header">显示成功提示框</h1>
                 <form class="bs-example bs-example-form form16" data-example-id="simple-input-groups">
                     <div class="input-group">
@@ -759,13 +884,18 @@
 <span class="hl kwa">&lt;/script&gt;</span></code></pre>
 
             </div>
+
+
+
+
+
             <div class="bs-docs-section anli">
                 <h1 id="ly" class="page-header">本人留言</h1>
 
                 <div class="jumbotron">
                     <h1>Hello, world!</h1>
                     <p>一切都是为了方便，希望多多指导，多多协助。o(∩_∩)o</p>
-                    <p><a class="btn btn-primary btn-lg" href="#" role="button"><i class="fa fa-github-alt"></i> GitHub</a></p>
+                    <p><a class="btn btn-primary btn-lg" href="https://github.com/1029131145/vali" role="button"><i class="fa fa-github-alt"></i> GitHub</a></p>
                 </div>
 
             </div>
@@ -815,6 +945,9 @@
                     </li>
                     <li>
                         <a href="#zdy">自定义验证</a>
+                    </li>
+                    <li>
+                        <a href="#ts_zdy">提示框自定义</a>
                     </li>
                     <li>
                         <a href="#cg">显示成功提示框</a>
