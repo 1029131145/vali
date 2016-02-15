@@ -99,7 +99,7 @@
     });
 
     $(".input_key").on("keydown", function (e) {
-        var t = $("form");
+        var t = $(this);
         if (!(this.selectionStart >= 0 && r)) return;
         var n = this.selectionStart,
             i = this.value.substring(0, n).replace(/ /g, "&nbsp;"),

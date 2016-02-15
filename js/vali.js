@@ -12,13 +12,12 @@
             return false;
         }
 
-        var _, _id, _o, _v, _x, _y, _Rep, _r, _e, _s, _top, _left, _prompt, _err, _validate, _custom, _c, _vali, class_error, class_success;
+        var _, _id, _o, _v, _x, _y, _Rep, _r, _e, _s, _top, _left, _prompt, _err, _validate, _custom, _c, _vali;
 
         _custom = new Array();
         _r = new Array();
         _r[0] = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         _r[1] = /^(0|86|17951)?(13[0-9]|15[012356789]|17[0678]|18[0-9]|14[57])[0-9]{8}$/;
-
 
         _prompt = {
             "Success": "Success",
@@ -36,11 +35,6 @@
             "equally": "Must be the same",
             "cannot": "cannot is ｛0｝",
             "date": "Please enter the correct date",
-            "http": "Please enter the correct URL",
-            "number_max": "Can not be greater than ｛0｝",
-            "number_min": "Can not be less than ｛0｝",
-            "time": "Please enter the correct time",
-            "datetime": "Please enter the correct date time",
             "value0": "Chinese",
             "value1": "Letter",
             "value2": "Number",
@@ -65,7 +59,6 @@
             this._phone = false;
             this._max = false;
             this._min = false;
-            this._minmax = false;
             this._bank = false;
             this._only = false;
             this._must = false;
@@ -77,12 +70,6 @@
             this._cannot = false;
             this._custom = false;
             this._date = false;
-            this._http = false;
-            this._number_max = false;
-            this._number_min = false;
-            this._number_minmax = false;
-            this._time = false;
-            this._datetime = false;
             var _this = this;
             this.setAttr = function (obj) {
                 _this._email = obj.attr("email");
@@ -100,13 +87,6 @@
                 _this._cannot = obj.attr("cannot");
                 _this._custom = obj.attr("custom");
                 _this._date = obj.attr("date");
-                _this._http = obj.attr("http");
-                _this._number_max = obj.attr("number_max");
-                _this._number_min = obj.attr("number_min");
-                _this._number_minmax = obj.attr("number_minmax");
-                _this._minmax = obj.attr("minmax");
-                _this._time = obj.attr("time");
-                _this._datetime = obj.attr("datetime");
             }
         };
 
@@ -114,8 +94,6 @@
         _id = vali_current;
         var _A = {
             "vali": "vali",
-            "class_error": "vali_error",
-            "class_success": "vali_success",
             "disparityH": 4,
             "disparityW": 0,
             "prompt_width": true,
@@ -126,15 +104,9 @@
             "icon_img_eu": "",
             "icon_img_su": "",
             "decimal_places": 2,
-            "custom": null,
-            "window_show": true,
-            "pe": false,
-            "ps": false
+            "custom": null
         };
         $.extend(_A, A);
-
-        class_error = _A["class_error"];
-        class_success = _A["class_success"];
 
         if (_A["icon_show"]) {
             _e = ' <i class="fa fa-remove"></i>';
@@ -173,8 +145,8 @@
             _left = obj.offset().left;
             _x = obj.width();
             _y = obj.height();
-            _top = parseInt(_top) + parseInt(vali_fun.getPaddingTB(obj));
-            _x = parseInt(_x) + parseInt(vali_fun.getPaddingLR(obj));
+            _top=parseInt(_top)+parseInt(vali_fun.getPaddingTB(obj));
+            _x=parseInt(_x)+parseInt(vali_fun.getPaddingLR(obj));
         };
 
         code = function () {
@@ -195,27 +167,10 @@
             var prompt = $("#valiid" + id);
             _o.focus(function () {
                 _o = $(this);
-                _o.removeClass(class_error).removeClass(class_success);
                 prompt.hide();
-                if (_A["pe"]) {
-                    var pe = _o.attr("pe");
-                    if (pe == "" || pe == null || pe == undefined) {
-                        prompt_log("ps is null");
-                    }else{
-                        $(pe).hide();
-                    }
-                }
-                if (_A["ps"]) {
-                    var ps = _o.attr("ps");
-                    if (ps == "" || ps == null || ps == undefined) {
-                        prompt_log("ps is null");
-                    }else{
-                        $(ps).hide();
-                    }
-                }
                 _top = _o.offset().top;
                 _left = _o.offset().left;
-                _top = parseInt(_top) + parseInt(vali_fun.getPaddingTB(_o));
+                _top=parseInt(_top)+parseInt(vali_fun.getPaddingTB(_o));
                 prompt.css({
                     "top": (_top - 1 + _y + _A["disparityH"] + 1) + "px",
                     "left": (_left - 1 + _A["disparityW"] + 1) + "px"
@@ -232,11 +187,9 @@
                 _err = 0;
                 _v = $(this).val();
                 if (err_validate(validate, prompt) == false) {
-                    _o.addClass(class_error);
                     prompt_log("input_blur is Error");
                 }
                 if (_err == 0) {
-                    _o.addClass(class_success);
                     validate_success(prompt);
                 }
             });
@@ -244,6 +197,7 @@
 
 
         err_validate = function (validate, prompt) {
+
 
             validate._email ? input_email(prompt) : prompt_log("Not");
             if (_err != 0) {
@@ -305,51 +259,14 @@
             if (_err != 0) {
                 return false;
             }
-            validate._http ? input_http(prompt) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-            validate._minmax ? input_minmax(prompt, validate._minmax) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-            validate._number_max ? input_number_max(prompt, validate._number_max) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-            validate._number_min ? input_number_min(prompt, validate._number_min) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-            validate._number_minmax ? input_number_minmax(prompt, validate._number_minmax) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-            validate._time ? input_time(prompt) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-            validate._datetime ? input_datetime(prompt) : prompt_log("Not");
-            if (_err != 0) {
-                return false;
-            }
-
 
             return true;
+
         };
 
         validate_error = function (p) {
             se_switch(p, false);
-            _A["window_show"] ? p.fadeIn(500) : p.hide();
-
-            if (_A["pe"]) {
-                var pe = _o.attr("pe");
-                if (pe == "" || pe == null || pe == undefined) {
-                    prompt_log("pe is null");
-                    return false;
-                }
-                $(pe).size() > 0 ? $(pe).fadeIn(300) : prompt_log("label pe is null");
-            }
+            p.fadeIn(500);
         };
 
         validate_success = function (p) {
@@ -357,23 +274,11 @@
             se_switch(p, true);
             p.html(_prompt["Success"]);
             p.append(_s);
-            _A["window_show"] ? _A["success_show"] ? p.fadeIn(500) : p.hide() : p.hide();
-
-            if (_A["ps"]) {
-                var ps = _o.attr("ps");
-                if (ps == "" || ps == null || ps == undefined) {
-                    prompt_log("ps is null");
-                    return false;
-                }
-                $(ps).size() > 0 ? $(ps).fadeIn(300) : prompt_log("label ps is null");
-            }
+            _A["success_show"] ? p.fadeIn(500) : p.hide();
         };
 
 
         _vali = function () {
-            this.isURL = function (str) {
-                return !!str.match(/(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g);
-            };
             this.vali_date = function (str) {
                 var r = str.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
                 if (r == null)return false;
@@ -539,25 +444,23 @@
 
 
             this.getPaddingTB = function (o) {
-                var t = o.css("padding-top");
-                var b = o.css("padding-bottom");
-                var bl = o.css("border-top-width");
-                var br = o.css("border-bottom-width");
-                return parseInt(t) + parseInt(b) + parseInt(bl) + parseInt(br);
+                var t= o.css("padding-top");
+                var b= o.css("padding-bottom");
+                var bl=o.css("border-top-width");
+                var br=o.css("border-bottom-width");
+                return parseInt(t)+parseInt(b)+parseInt(bl)+parseInt(br);
             }
             this.getPaddingLR = function (o) {
-                var l = o.css("padding-left");
-                var r = o.css("padding-right");
-                var bl = o.css("border-left-width");
-                var br = o.css("border-right-width");
-                return parseInt(l) + parseInt(r) + parseInt(bl) + parseInt(br);
+                var l= o.css("padding-left");
+                var r= o.css("padding-right");
+                var bl=o.css("border-left-width");
+                var br=o.css("border-right-width");
+                return parseInt(l)+parseInt(r)+parseInt(bl)+parseInt(br);
             }
         };
 
         var vali_fun = new _vali();
-        var input_email, input_phone, input_max, input_min, input_bank, input_only, input_must, input_first_must,
-            input_first_cannot, input_number, input_idcard, input_equally, input_cannot, input_custom, input_date, input_http,
-            input_minmax, input_number_max, input_number_min, input_number_minmax, input_time, input_datetime;
+        var input_email, input_phone, input_max, input_min, input_bank, input_only, input_must, input_first_must, input_first_cannot, input_number, input_idcard, input_equally, input_cannot, input_custom, input_date;
 
         input_email = function (p) {
             _Rep = _r[0];
@@ -568,63 +471,11 @@
         };
 
 
-        input_number_minmax = function (p, num) {
-            var _num = num.split(",");
-            if (_num.length == 1) {
-                _num = num.split("-");
-            }
-            if (_num.length == 1) {
-                prompt_log("input_number_minmax-->Error");
-            } else {
-                if (input_number_min(p, _num[0])) {
-                    input_number_max(p, _num[1]);
-                }
-            }
-        };
-
-        input_minmax = function (p, num) {
-            var _num = num.split(",");
-            if (_num.length == 1) {
-                _num = num.split("-");
-            }
-            if (_num.length == 1) {
-                prompt_log("input_minmax-->Error");
-            } else {
-                if (input_min(p, _num[0])) {
-                    input_max(p, _num[1]);
-                }
-            }
-        };
-
-        input_http = function (p) {
-            var _ifs = vali_fun.isURL(_v);
-            p.html(_prompt["http"]);
-            p.append(_e);
-            _ifs ? prompt_log("input_http-->Success") : validate_error(p);
-            _ifs ? _err = 0 : _err = 1;
-        };
-
         input_date = function (p) {
             var _ifs = vali_fun.vali_date(_v);
             p.html(_prompt["date"]);
             p.append(_e);
-            _ifs ? prompt_log("input_date-->Success") : validate_error(p);
-            _ifs ? _err = 0 : _err = 1;
-        };
-
-        input_time = function (p) {
-            var _ifs = vali_fun.vali_time(_v);
-            p.html(_prompt["time"]);
-            p.append(_e);
-            _ifs ? prompt_log("input_time-->Success") : validate_error(p);
-            _ifs ? _err = 0 : _err = 1;
-        };
-
-        input_datetime = function (p) {
-            var _ifs = vali_fun.vali_datetime(_v);
-            p.html(_prompt["datetime"]);
-            p.append(_e);
-            _ifs ? prompt_log("input_datetime-->Success") : validate_error(p);
+            _ifs ? prompt_log("input_email-->Success") : validate_error(p);
             _ifs ? _err = 0 : _err = 1;
         };
 
@@ -641,7 +492,7 @@
             var _ifs = vali_fun.IdCard(_v);
             p.html(_prompt["idcard"]);
             p.append(_e);
-            _ifs ? prompt_log("input_idcard-->Success") : validate_error(p);
+            _ifs ? prompt_log("input_email-->Success") : validate_error(p);
             _ifs ? _err = 0 : _err = 1;
         };
 
@@ -670,7 +521,6 @@
             if (isNaN(num)) {
                 validate_error(p);
                 _err = 1;
-                return false;
             } else {
                 var dp = parseInt(_o.attr("dp"));
                 var _dp = _A["decimal_places"];
@@ -678,7 +528,6 @@
                     _dp = dp;
                 }
                 _o.val(num.toFixed(_dp));
-                return true;
             }
         };
 
@@ -687,35 +536,7 @@
             p.html(_prompt["phone"]);
             p.append(_e);
             _Rep.test(_v) ? prompt_log("input_phone-->Success") : validate_error(p);
-            if (!_Rep.test(_v)) {
-                _err = 1;
-                return false;
-            }
-            var bl = _o.attr("bl");
-            bl = bl.split(",");
-            $.each(bl, function (a, b) {
-                if (_v.indexOf(b) == 0) {
-                    _err = 1;
-                    validate_error(p);
-                    return false;
-                }
-            });
-        };
-
-        input_number_max = function (p, num) {
-            if (!input_number(p)) {
-                return false
-            }
-            if (isNaN(num)) {
-                return prompt_log("Max is NaN");
-            }
-            p.html(_prompt["number_max"].replace("｛0｝", num));
-            p.append(_e);
-            var this_v = parseFloat(_v);
-            this_v <= num ? prompt_log("input_max-->Success") : validate_error(p);
-            this_v <= num ? _err = 0 : _err = 1;
-
-            return this_v <= num;
+            return _Rep.test(_v) ? _err = 0 : _err = 1;
         };
 
         input_max = function (p, num) {
@@ -725,23 +546,7 @@
             p.html(_prompt["max"].replace("｛0｝", num));
             p.append(_e);
             _v.length <= num ? prompt_log("input_max-->Success") : validate_error(p);
-            _v.length <= num ? _err = 0 : _err = 1;
-            return _v.length <= num;
-        };
-
-        input_number_min = function (p, num) {
-            if (!input_number(p)) {
-                return false
-            }
-            if (isNaN(parseInt(num))) {
-                return prompt_log("Min is NaN");
-            }
-            p.html(_prompt["number_min"].replace("｛0｝", num));
-            p.append(_e);
-            var this_v = parseFloat(_v);
-            this_v >= num ? prompt_log("input_min-->Success") : validate_error(p);
-            this_v >= num ? _err = 0 : _err = 1;
-            return this_v >= num;
+            return _v.length <= num ? _err = 0 : _err = 1;
         };
 
         input_min = function (p, num) {
@@ -751,8 +556,7 @@
             p.html(_prompt["min"].replace("｛0｝", num));
             p.append(_e);
             _v.length >= num ? prompt_log("input_min-->Success") : validate_error(p);
-            _v.length >= num ? _err = 0 : _err = 1;
-            return _v.length >= num;
+            return _v.length >= num ? _err = 0 : _err = 1;
         };
 
         input_bank = function (p) {
