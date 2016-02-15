@@ -1,6 +1,6 @@
 {
   "name": "jquery-vali",
-  "version": "1.0",
+  "version": "1.3",
   "main": "vali.js",
   "repository": "1029131145/vali",
   "dependencies": {
