@@ -28,10 +28,16 @@
             cursor: pointer;
 
         }
+        .vali_success{
+            border: 1px solid #27b73f;
+        }
+        .vali_error{
+            border: 1px solid red;
+        }
     </style>
 
 </head>
-<body style="text-align: center">
+<body style="text-align: center;">
 <h1>Vali.js</h1>
 
 <h1>
@@ -42,11 +48,10 @@
 
 <form action="index.html" method="get" class="form" id="form">
 
-    银行卡号：<input type="text"  class="input_key" bank="y" vali>
+    邮箱地址：<input type="text" name="email" class="input_key" email="t" vali>
     <button type="submit" >
         提交
     </button>
-
 </form>
 <script type="text/javascript" src="js/183.js"></script>
 <script type="text/javascript" src="js/typing.js"></script>
@@ -54,7 +59,7 @@
 <script type="text/javascript" src="js/vali.min.js"></script>
 <script type="text/javascript">
     $(".form").vali({
-        "success_show":true
+        prompt_width:false
     });
 </script>
 
