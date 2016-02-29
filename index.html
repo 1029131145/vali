@@ -7,8 +7,8 @@
     <title>Vali Js</title>
     <link rel="icon" href="favicon.ico">
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
     <script type="text/javascript" src="js/vali.min.js"></script>
+    <script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
 
     <link rel="stylesheet" href="css/vali.css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -427,37 +427,86 @@
                 </table>
 
             </div>
+
+
+            <div class="bs-docs-section anli">
+                <h1 id="duix" class="page-header">vali对象</h1>
+                <div class="bs-callout bs-callout-danger" >
+                    <h4>$.vali对象</h4>
+                    <p><strong>vali 方法返回一个 vali 对象。vali 对象有很多方法可以用来引发校验程序或者改变 form 的内容，下面列出几个常用的方法。</strong></p>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th class="info">方法名</th>
+                        <th>返回类型</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td class="info">setPrompt(a)</td>
+                        <td>无返回</td>
+                        <td>设置提示语</td>
+                    </tr>
+                    <tr>
+                        <td class="info">form(a, b)</td>
+                        <td>Boolean</td>
+                        <td>验证 form 返回成功还是失败</td>
+                    </tr>
+                    <tr>
+                        <td class="info">ele(a)</td>
+                        <td>Boolean</td>
+                        <td>验证单个元素是成功还是失败。</td>
+                    </tr>
+                    <tr>
+                        <td class="info">promptHide(a)</td>
+                        <td>无返回</td>
+                        <td>隐藏所有提示</td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+
             <div class="bs-docs-section">
                 <h1 id="tis" class="page-header">自定义提示框</h1>
-<pre><code class="code_http">var vali_prompt = {
-    "Success": "Success",
-    "email": "Please enter the correct email address",
-    "phone": "Please enter the correct cell phone number",
-    "max": "Can not exceed ｛0｝ characters",
-    "min": "Not less than ｛0｝ characters",
-    "bank": "Please enter the correct bank card number",
-    "only": "Contain only",
-    "must": "Must contain",
-    "first_must": "The first must be：",
-    "first_cannot": "The first cannot be：",
-    "number": "Please enter a number",
-    "idcard": "Please enter the correct ID number",
-    "equally": "Must be the same",
-    "cannot": "cannot is ｛0｝",
-    "date": "Please enter the correct date",
-    "http": "Please enter the correct URL",
-    "number_max": "Can not be greater than ｛0｝",
-    "number_min": "Can not be less than ｛0｝",
-    "time": "Please enter the correct time",
-    "datetime": "Please enter the correct date time",
-    "value0": "Chinese",
-    "value1": "Letter",
-    "value2": "Number",
-    "value3": "Space"
-};</code></pre>
+
+
+
+                <pre class="hl"><code class="language-html" data-lang="html"><span class="hl kwa">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+    <span class="hl opt">$.</span>vali<span class="hl opt">.</span><span class="hl kwd">setPrompt</span><span class="hl opt">({</span>
+        <span class="hl str">&quot;Success&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Success&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;email&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct email address&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;phone&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct cell phone number&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;max&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Can not exceed ｛0｝ characters&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;min&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Not less than ｛0｝ characters&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;bank&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct bank card number&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;only&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Contain only&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;must&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Must contain&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;first_must&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;The first must be：&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;first_cannot&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;The first cannot be：&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;number&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter a number&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;idcard&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct ID number&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;equally&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Must be the same&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;cannot&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;cannot is ｛0｝&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;date&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct date&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;http&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct URL&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;number_max&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Can not be greater than ｛0｝&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;number_min&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Can not be less than ｛0｝&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;time&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct time&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;datetime&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Please enter the correct date time&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;value0&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Chinese&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;value1&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Letter&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;value2&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Number&quot;</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;value3&quot;</span><span class="hl opt">:</span> <span class="hl str">&quot;Space&quot;</span>
+    <span class="hl opt">});</span>
+<span class="hl kwa">&lt;/script&gt;</span></code>
+</pre>
+
+
+
 
                 <div class="bs-callout bs-callout-info" id="jquery-">
-                    <h4>自定义提示框一定要在 Vali.js 之前引入</h4>
+                    <h4>自定义提示框一定要在 Vali.js 之后引入</h4>
 
                     <p>请注意：<strong>不可更改验证属性名</strong>，｛0｝是替换符号</p>
 
@@ -474,14 +523,14 @@
                     邮箱验证
                 </h2>
 
-                <form class="bs-example bs-example-form form1" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form" id="form1" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">请输入邮箱</span>
                         <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1" email="t" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(".form1").vali();
+                    $("#form1").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;form</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;form&quot;</span><span class="hl kwa">&gt;</span>
     <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">email</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span>
@@ -497,40 +546,38 @@
                     手机号验证
                 </h2>
 
-                <form class="bs-example bs-example-form form2" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form" id="form2" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" id="">请输入手机号</span>
-                        <input type="text" class="form-control" placeholder="phone" aria-describedby="" phone="t" vali>
+                        <input type="text" class="form-control" placeholder="phone" aria-describedby="" phone="t" bl="152,136" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form2").vali();
-                    });
+                    $("#form2").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;form</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;form&quot;</span><span class="hl kwa">&gt;</span>
-    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">phone</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">bl</span>=<span class="hl str">&quot;152,136&quot;</span> <span class="hl kwb">phone</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span>
 <span class="hl kwa">&lt;/form&gt;</span>
 <span class="hl kwa">&lt;script type=&quot;text/javascript&quot;&gt;</span>
     <span class="hl opt">$(</span><span class="hl str">&quot;.form&quot;</span><span class="hl opt">).</span><span class="hl kwd">vali</span><span class="hl opt">();</span>
 <span class="hl kwa">&lt;/script&gt;</span></code></pre>
                 <div class="alert alert-info" role="alert">
-                    现在已经支持 170 <span class="label label-danger">v 1.1</span>
+                    现在已经支持 170 <span class="label label-danger">v 1.1</span><br />
+                    增加黑名单，元素属性bl, bl="152,136",152和136开头不通过 <span class="label label-danger">v 1.3</span>
+                  
                 </div>
 
                 <h2 id="yan3">
                     Max验证
                 </h2>
-                <form class="bs-example bs-example-form form3" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form3" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >不能超过2个字符</span>
                         <input type="text" class="form-control" placeholder="phone" aria-describedby="" value="已经超过2个了" max="2" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form3").vali();
-                    });
+                        $("#form3").vali();
                 </script>
 
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;form</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;form&quot;</span><span class="hl kwa">&gt;</span>
@@ -541,21 +588,21 @@
      <span class="hl opt">$(</span><span class="hl str">&quot;.form&quot;</span><span class="hl opt">).</span><span class="hl kwd">vali</span><span class="hl opt">();</span>
 <span class="hl kwa">&lt;/script&gt;</span></code></pre>
                 <div class="alert alert-info" role="alert">
-                    此验证跟min更配哟~
+                    此验证跟min更配哟~<br />
+                    minmax="6-16" 长度区间 <span class="label label-danger">v 1.3</span> <br />
+                    或者 minmax="6,16"
                 </div>
                 <h2 id="yan4">
                     Min验证
                 </h2>
-                <form class="bs-example bs-example-form form4" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form4" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >必须超过2个字符</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" min="2" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form4").vali();
-                    });
+                        $("#form4").vali();
                 </script>
 
                 <pre><code class="language-html" data-lang="html">&lt;!<span class="hl slc">-- 用法同 Max --&gt;</span></code></pre>
@@ -563,16 +610,14 @@
                 <h2 id="yan5">
                     银行卡验证
                 </h2>
-                <form class="bs-example bs-example-form form5" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form5" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >银行卡</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" bank="y" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form5").vali();
-                    });
+                        $("#form5").vali();
                 </script>
 
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">bank</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -585,16 +630,14 @@
                 <h2 id="yan6">
                     only验证
                 </h2>
-                <form class="bs-example bs-example-form form6" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form6" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >只能用字母数字下划线组成</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" only="1,2,_" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form6").vali();
-                    });
+                        $("#form6").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">only</span>=<span class="hl str">&quot;1,2,_&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
@@ -606,16 +649,14 @@
 
                 <h2 id="yan7">must验证</h2>
 
-                <form class="bs-example bs-example-form form7" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form7" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >必须用字母数字下划线组成</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" must="1,2,_" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form7").vali();
-                    });
+                        $("#form7").vali();
                 </script>
 
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">must</span>=<span class="hl str">&quot;1,2,_&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -624,16 +665,14 @@
                 </div>
 
                 <h2 id="yan8">first_must验证</h2>
-                <form class="bs-example bs-example-form form8" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form8" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >首位必须是字母</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" first_must="1" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form8").vali();
-                    });
+                        $("#form8").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">first_must</span>=<span class="hl str">&quot;1&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
 
@@ -644,16 +683,14 @@
                 </div>
 
                 <h2 id="yan9">first_cannot验证</h2>
-                <form class="bs-example bs-example-form form9" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form9" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >首位不能是字母</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" first_cannot="1" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form9").vali();
-                    });
+                        $("#form9").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">first_cannot</span>=<span class="hl str">&quot;1&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
@@ -661,36 +698,35 @@
                 </div>
 
                 <h2 id="yan10">货币验证</h2>
-                <form class="bs-example bs-example-form form10" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form10" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >请输入钱</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" number="t" dp="3" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form10").vali();
-                    });
+                        $("#form10").vali();
                 </script>
 
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">number</span>=<span class="hl str">&quot;t&quot;</span>  <span class="hl kwb">dp</span>=<span class="hl str">&quot;3&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
                     可以通过元素属性 dp 来快捷设置位数 <span class="label label-danger">v 1.1</span> <br>
-                    小数点位数请设置属性 <span class="label label-danger">decimal_places</span>
+                    小数点位数请设置属性 <span class="label label-danger">decimal_places</span> <br />
+                    元素属性 number_min 最小 <br />
+                    元素属性 number_max 最大 <br />
+                    元素属性 number_minmax 数值区间 <br />
                 </div>
 
 
                 <h2 id="yan11">身份证验证</h2>
-                <form class="bs-example bs-example-form form11" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form11" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >请输入身份证</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" idcard="t" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form11").vali();
-                    });
+                        $("#form11").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">idcard</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
@@ -698,7 +734,7 @@
                 </div>
 
                 <h2 id="yan12">equally验证</h2>
-                <form class="bs-example bs-example-form form12" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form" id="form12" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >值必须和我一样</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" id="ces" value="1029131145"disabled="disabled">
@@ -709,9 +745,7 @@
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form12").vali();
-                    });
+                        $("#form12").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;qq&quot;</span> <span class="hl kwb">value</span>=<span class="hl str">&quot;1029131145&quot;</span><span class="hl kwa">&gt;</span>
 <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">equally</span>=<span class="hl str">&quot;#qq&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
@@ -720,27 +754,28 @@
                 </div>
 
                 <h2 id="yan13">日期验证</h2>
-                <form class="bs-example bs-example-form form13" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form13" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >请输入日期</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="" value="" date="t" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form13").vali();
-                    });
+                        $("#form13").vali();
                 </script>
                 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">date</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span></code></pre>
                 <div class="alert alert-danger" role="alert">
                     日期格式：1996-09-24 or 1996-9-24 or 1996/5/21
                     <br>
-                    错误格式：1996-2-30
+                    错误格式：1996-2-30 <br />
+                    time="t" 验证时间 10:10:10 <br />
+                    datetime="t" 验证日期时间 1996-09-24 10:10:10 <span class="label label-danger">v 1.3</span>
+                    
                 </div>
 
 
                 <h2 id="yan14">cannot验证</h2>
-                <form class="bs-example bs-example-form form14" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form14" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon" >不能选择第一个</span>
                         <select class="form-control"  aria-describedby="" cannot="no" vali>
@@ -752,9 +787,7 @@
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(function(){
-                        $(".form14").vali();
-                    });
+                        $("#form14").vali();
                 </script>
 <pre><code class="language-html" data-lang="html"><span class="hl kwa">&lt;select</span> <span class="hl kwb">cannot</span>=<span class="hl str">&quot;no&quot;</span> vali<span class="hl kwa">&gt;</span>
     <span class="hl kwa">&lt;option</span> <span class="hl kwb">value</span>=<span class="hl str">&quot;no&quot;</span><span class="hl kwa">&gt;</span>--请选择--<span class="hl kwa">&lt;/option&gt;</span>
@@ -770,14 +803,14 @@
 
             <div class="bs-docs-section anli">
                 <h1 id="zdy" class="page-header">Custom自定义验证案例</h1>
-                <form class="bs-example bs-example-form form15" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form15" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon">大于50 且是奇数</span>
                         <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon1" custom="t" ele="custom" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(".form15").vali({
+                    $("#form15").vali({
                         "custom":[{
                             "ele":"custom",
                             "fun":function (e){
@@ -831,7 +864,7 @@
 
             <div class="bs-docs-section anli">
                 <h1 id="ts_zdy" class="page-header">提示框自定义 <small style="color:red;">v1.3</small></h1>
-                <form class="bs-example bs-example-form form17" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form16" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon">请输入邮箱</span>
                         <input type="text" class="form-control" aria-describedby="basic-addon1" email="t" pe="#pe" ps="#ps" vali>
@@ -840,7 +873,7 @@
                     <span class="label label-info" id="ps" style="display:none">输入正确</span>
                 </form>
                 <script type="text/javascript">
-                    $(".form17").vali({
+                    $("#form16").vali({
                         "window_show":false,
                         "pe":true,
                         "ps":true
@@ -865,14 +898,14 @@
 
             <div class="bs-docs-section anli">
                 <h1 id="cg" class="page-header">显示成功提示框</h1>
-                <form class="bs-example bs-example-form form16" data-example-id="simple-input-groups">
+                <form class="bs-example bs-example-form " id="form17" data-example-id="simple-input-groups">
                     <div class="input-group">
                         <span class="input-group-addon">请输入邮箱</span>
                         <input type="text" class="form-control" placeholder="输入正确才能看到哟" aria-describedby="basic-addon1" email="t" vali>
                     </div>
                 </form>
                 <script type="text/javascript">
-                    $(".form16").vali({
+                    $("#form17").vali({
                         "success_show":true
                     });
                 </script>
@@ -885,9 +918,98 @@
 
             </div>
 
+            <div class="bs-docs-section anli">
+                <h1 id="zc" class="page-header">完整注册案例</h1>
 
+            <form class="bs-example bs-example-form" method="get" action="index.html" id="form" data-example-id="simple-input-groups">
+                <h3 class="text-center">注 册</h3>
+                <div class="zhuce">
+                    <label class="tit">邮箱<span class="fr s1">邮箱格式不对</span></label>
+                    <input type="text" class="input" pe=".zhuce .s1"  email="t" vali>
 
+                    <label class="tit">用户名<span class="fr s2">用户名必须在6-16位</span></label>
+                    <input type="text" class="input"  minmax="6,16" pe=".zhuce .s2" vali>
 
+                    <label class="tit">密码<span class="fr s3">密码必须在6-16位,且必须用字母和数字组成</span></label>
+                    <input type="password" class="input" id="pwd" pe=".zhuce .s3" minmax="6,16" must="1,2" vali>
+
+                    <label class="tit">确认密码<span class="fr s4">必须和密码一致</span></label>
+                    <input type="password" class="input" pe=".zhuce .s4"  equally="#pwd" vali>
+
+                    <label class="tit">手机号<span class="fr s5">手机号格式不对</span></label>
+                    <input type="text" class="input" pe=".zhuce .s5"  phone="t" vali>
+
+                    <label class="tit">验证码<span class="fr s6">验证码不对,验证码是lukang</span></label>
+                    <input type="text" class="input" pe=".zhuce .s6" custom="t" ele="a" vali>
+
+                    <div class="zhuce_btn">
+                        <button type="submit" id="submit" class="button">提交</button>
+                        <button type="button" id="btn" class="button">查看表单是否全对</button>
+                    </div>
+                </div>
+            </form>
+            <script type="text/javascript">
+                $("#form").vali({
+                    "window_show":false,
+                    "pe":true,
+                    "custom":[{
+                        "ele":"a",
+                        "fun":function(e){
+                            return e.val()=="LUKANG";
+                        }
+                    }]
+                });
+                $("#btn").click(function(){
+                    //vali对象的form方法。
+                    var i=$.vali.form("#form");
+                    alert(i);
+                });
+            </script>
+
+                <pre class="hl"><code class="language-html" data-lang="html"><span class="hl kwa">&lt;div</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;zhuce&quot;</span><span class="hl kwa">&gt;</span>
+    <span class="hl kwa">&lt;label</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;tit&quot;</span><span class="hl kwa">&gt;</span>邮箱<span class="hl kwa">&lt;span</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;fr s1&quot;</span><span class="hl kwa">&gt;</span>邮箱格式不对<span class="hl kwa">&lt;/span&gt;&lt;/label&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;input&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;.zhuce .s1&quot;</span>  <span class="hl kwb">email</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span>
+
+    <span class="hl kwa">&lt;label</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;tit&quot;</span><span class="hl kwa">&gt;</span>用户名<span class="hl kwa">&lt;span</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;fr s2&quot;</span><span class="hl kwa">&gt;</span>用户名必须在<span class="hl num">6</span>-<span class="hl num">16</span>位<span class="hl kwa">&lt;/span&gt;&lt;/label&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;input&quot;</span>  <span class="hl kwb">minmax</span>=<span class="hl str">&quot;6,16&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;.zhuce .s2&quot;</span> vali<span class="hl kwa">&gt;</span>
+
+    <span class="hl kwa">&lt;label</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;tit&quot;</span><span class="hl kwa">&gt;</span>密码<span class="hl kwa">&lt;span</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;fr s3&quot;</span><span class="hl kwa">&gt;</span>密码必须在<span class="hl num">6</span>-<span class="hl num">16</span>位,且必须用字母和数字组成<span class="hl kwa">&lt;/span&gt;&lt;/label&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;password&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;input&quot;</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;pwd&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;.zhuce .s3&quot;</span> <span class="hl kwb">minmax</span>=<span class="hl str">&quot;6,16&quot;</span> <span class="hl kwb">must</span>=<span class="hl str">&quot;1,2&quot;</span> vali<span class="hl kwa">&gt;</span>
+
+    <span class="hl kwa">&lt;label</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;tit&quot;</span><span class="hl kwa">&gt;</span>确认密码<span class="hl kwa">&lt;span</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;fr s4&quot;</span><span class="hl kwa">&gt;</span>必须和密码一致<span class="hl kwa">&lt;/span&gt;&lt;/label&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;password&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;input&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;.zhuce .s4&quot;</span>  <span class="hl kwb">equally</span>=<span class="hl str">&quot;#pwd&quot;</span> vali<span class="hl kwa">&gt;</span>
+
+    <span class="hl kwa">&lt;label</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;tit&quot;</span><span class="hl kwa">&gt;</span>手机号<span class="hl kwa">&lt;span</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;fr s5&quot;</span><span class="hl kwa">&gt;</span>手机号格式不对<span class="hl kwa">&lt;/span&gt;&lt;/label&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;input&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;.zhuce .s5&quot;</span>  <span class="hl kwb">phone</span>=<span class="hl str">&quot;t&quot;</span> vali<span class="hl kwa">&gt;</span>
+
+    <span class="hl kwa">&lt;label</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;tit&quot;</span><span class="hl kwa">&gt;</span>验证码<span class="hl kwa">&lt;span</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;fr s6&quot;</span><span class="hl kwa">&gt;</span>验证码不对,验证码是LUKANG<span class="hl kwa">&lt;/span&gt;&lt;/label&gt;</span>
+    <span class="hl kwa">&lt;input</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;text&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;input&quot;</span> <span class="hl kwb">pe</span>=<span class="hl str">&quot;.zhuce .s6&quot;</span> <span class="hl kwb">custom</span>=<span class="hl str">&quot;t&quot;</span> <span class="hl kwb">ele</span>=<span class="hl str">&quot;a&quot;</span> vali<span class="hl kwa">&gt;</span>
+
+    <span class="hl kwa">&lt;div</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;zhuce_btn&quot;</span><span class="hl kwa">&gt;</span>
+        <span class="hl kwa">&lt;button</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;submit&quot;</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;submit&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;button&quot;</span><span class="hl kwa">&gt;</span>提交<span class="hl kwa">&lt;/button&gt;</span>
+        <span class="hl kwa">&lt;button</span> <span class="hl kwb">type</span>=<span class="hl str">&quot;button&quot;</span> <span class="hl kwb">id</span>=<span class="hl str">&quot;btn&quot;</span> <span class="hl kwb">class</span>=<span class="hl str">&quot;button&quot;</span><span class="hl kwa">&gt;</span>查看表单是否全对<span class="hl kwa">&lt;/button&gt;</span>
+    <span class="hl kwa">&lt;/div&gt;</span>
+<span class="hl kwa">&lt;/div&gt;</span>
+<span class="hl kwa">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+    <span class="hl opt">$(</span><span class="hl str">&quot;#form&quot;</span><span class="hl opt">).</span><span class="hl kwd">vali</span><span class="hl opt">({</span>
+        <span class="hl str">&quot;window_show&quot;</span><span class="hl opt">:</span><span class="hl kwa">false</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;pe&quot;</span><span class="hl opt">:</span><span class="hl kwa">true</span><span class="hl opt">,</span>
+        <span class="hl str">&quot;custom&quot;</span><span class="hl opt">:[{</span>
+            <span class="hl str">&quot;ele&quot;</span><span class="hl opt">:</span><span class="hl str">&quot;a&quot;</span><span class="hl opt">,</span>
+            <span class="hl str">&quot;fun&quot;</span><span class="hl opt">:</span><span class="hl kwa">function</span><span class="hl opt">(</span>e<span class="hl opt">){</span>
+                <span class="hl kwa">return</span> e<span class="hl opt">.</span><span class="hl kwd">val</span><span class="hl opt">()==</span><span class="hl str">&quot;LUKANG&quot;</span><span class="hl opt">;</span>
+            <span class="hl opt">}</span>
+        <span class="hl opt">}]</span>
+    <span class="hl opt">});</span>
+    <span class="hl opt">$(</span><span class="hl str">&quot;#btn&quot;</span><span class="hl opt">).</span><span class="hl kwd">click</span><span class="hl opt">(</span><span class="hl kwa">function</span><span class="hl opt">(){</span>
+        <span class="hl slc">//vali对象的form方法。</span>
+        <span class="hl kwa">var</span> i<span class="hl opt">=$.</span>vali<span class="hl opt">.</span><span class="hl kwd">form</span><span class="hl opt">(</span><span class="hl str">&quot;#form&quot;</span><span class="hl opt">);</span>
+        <span class="hl kwd">alert</span><span class="hl opt">(</span>i<span class="hl opt">);</span>
+    <span class="hl opt">});</span>
+<span class="hl kwa">&lt;/script&gt;</span></code>
+</pre>
+
+            </div>
 
             <div class="bs-docs-section anli">
                 <h1 id="ly" class="page-header">本人留言</h1>
@@ -922,6 +1044,9 @@
                         <a href="#yanz">验证种类</a>
                     </li>
                     <li>
+                        <a href="#duix">vali对象</a>
+                    </li>
+                    <li>
                         <a href="#tis">提示框</a>
                     </li>
                     <li>
@@ -950,7 +1075,10 @@
                         <a href="#ts_zdy">提示框自定义</a>
                     </li>
                     <li>
-                        <a href="#cg">显示成功提示框</a>
+                        <a href="#cg">成功提示框</a>
+                    </li>
+                    <li>
+                        <a href="#zc">完整注册案例</a>
                     </li>
                     <li>
                         <a href="#ly">作者留言</a>

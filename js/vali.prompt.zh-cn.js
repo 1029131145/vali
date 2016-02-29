@@ -1,7 +1,8 @@
-var vali_prompt = {
+$.vali.setPrompt({
     "Success": "输入正确",
     "email": "请输入正确的邮箱地址",
     "phone": "请输入正确的手机号码",
+    "phone_bl":"不支持：" ,
     "max": "长度不能超过｛0｝位",
     "min": "长度不能小于｛0｝位",
     "bank": "请输入正确的银行卡号",
@@ -23,4 +24,4 @@ var vali_prompt = {
     "value1": "字母",
     "value2": "数字",
     "value3": "空格字符"
-};
+});
