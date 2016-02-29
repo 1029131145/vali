@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vali Js </title>
+    <link rel="icon" href="favicon.ico">
 
     <link rel="stylesheet" href="css/vali.css" type="text/css">
-
 
     <style type="text/css">
         input {
@@ -18,7 +19,7 @@
         * {
             font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif
         }
-        
+
         button {
             height: 36px;
             width: 100px;
@@ -28,15 +29,18 @@
             cursor: pointer;
 
         }
-        .vali_success{
+
+        .vali_success {
             border: 1px solid #27b73f;
         }
-        .vali_error{
+
+        .vali_error {
             border: 1px solid red;
         }
     </style>
 
 </head>
+
 <body style="text-align: center;">
 <h1>Vali.js</h1>
 
@@ -45,24 +49,22 @@
     <i class="fa fa-hand-peace-o"></i>
 </h1>
 
-
 <form action="index.html" method="get" class="form" id="form">
 
-    邮箱地址：<input type="text" name="email" class="input_key" email="t" vali>
-    <button type="submit" >
+    邮箱地址：
+    <input type="text" id="input" name="email" class="input_key" email="t" vali>
+    <button type="button" onclick="sub()">
         提交
     </button>
 </form>
 <script type="text/javascript" src="js/183.js"></script>
 <script type="text/javascript" src="js/typing.js"></script>
-<script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
 <script type="text/javascript" src="js/vali.min.js"></script>
+<script type="text/javascript" src="js/vali.prompt.zh-cn.js"></script>
 <script type="text/javascript">
-    $(".form").vali({
-        prompt_width:false
-    });
+    $("#form").vali({prompt_width: false});
 </script>
 
-
 </body>
+
 </html>
