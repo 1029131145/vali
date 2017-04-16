@@ -1,7 +1,7 @@
-#vali.js
+# vali.js
 中文API地址：http://1029131145.github.io/vali/
 
-#使用方法
+# 使用方法
 ```javascript
 <!-- 非常简单 -->
 <form class="form">
